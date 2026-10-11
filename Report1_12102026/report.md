@@ -9,7 +9,7 @@
 | AD | 16 |
 | **Total** | **157** |
 
-- **Protocol**: 11 tasks per participant.
+**Protocol**: 11 tasks per participant.
 
 | Task | Media (`MediaName`) | Description |
 |---|---|---|
