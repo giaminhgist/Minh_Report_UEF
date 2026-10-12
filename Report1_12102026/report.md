@@ -30,12 +30,14 @@
 
 ### Definitions of the 25 selected features
 
-Each feature is one scalar per (participant, task). Notation: `n` = number of
-clean fixations; `x, y` = fixation centers (`FixationPointX/Y (MCSpx)`, px,
-media-relative); `dur` = fixation duration (`GazeEventDuration`, ms); `pup` =
-binocular mean pupil `(PupilLeft + PupilRight) / 2` (mm); `(cx, cy) = (W/2,
-H/2)` = media center from `TASK_GEOMETRY` (config.py). All stds use `ddof=1`
-(sample SD). The full 72-feature dictionary: `EDA/features_dictionary.md`.
+Each feature is one scalar per (participant, task). 
+Notation: 
+- `n` = number of clean fixations; 
+- `x, y` = fixation centers (`FixationPointX/Y (MCSpx)`, px, media-relative);
+- `dur` = fixation duration (`GazeEventDuration`, ms);
+- `pup` = binocular mean pupil `(PupilLeft + PupilRight) / 2` (mm);
+- `(cx, cy) = (W/2, H/2)` = media center from `TASK_GEOMETRY` (config.py).
+All stds use `ddof=1` (sample SD). The full 72-feature dictionary: `EDA/features_dictionary.md`.
 
 | Feature | Meaning | How it is computed | Unit |
 |---|---|---|---|
@@ -72,8 +74,8 @@ H/2)` = media center from `TASK_GEOMETRY` (config.py). All stds use `ddof=1`
 
 ## 3. Figures - features significant in all three King–Devick cards (tasks 3, 4, 5)
 
-Of the 25 selected features, **8** have p < 0.1 in all three King–Devick
-cards. Each figure shows one feature across the three cards.
+Of the 25 selected features, **8** have p < 0.1 in all three King–Devick cards. 
+Each figure shows one feature across the three cards.
 
 <img src="figures/fig_geo_nn_dist_mean.svg" alt="geo_nn_dist_mean" width="100%">
 
@@ -109,18 +111,13 @@ cards. Each figure shows one feature across the three cards.
 
 ## 4. Baseline classification experiments
 
-Six classical baselines (Logistic Regression, SVM RBF, SVM Linear, FNN MLP
-64-32, QDA, GNB) on the 25 selected features, run for three problems
-(CO vs MCI, CO vs AD, CO/MCI/AD). Protocol: participant-level stratified
-4-fold CV × 10 seeds (1–10) = 40 train/test evaluations per (problem, model);
-`StandardScaler` fitted per fold on the training split; metrics
-Acc / Sen / Spec / AUC / F1 with **AUC as the primary metric**; mean ± std
-over the 40 evaluations.
+Six classical baselines (Logistic Regression, SVM RBF, SVM Linear, FNN MLP 64-32, QDA, GNB) on the 25 selected features, run for three problems (CO vs MCI, CO vs AD, CO/MCI/AD). 
+Protocol: 
+- participant-level stratified 4-fold CV × 10 seeds (1–10) = 40 train/test evaluations per (problem, model);
+- `StandardScaler` fitted per fold on the training split;
+- metrics Acc / Sen / Spec / AUC / F1 with **AUC as the primary metric**; mean ± std over the 40 evaluations.
 
-**Input design**: one sample per participant - the 25 selected features × 11
-tasks flattened to **275 features** (`{feature}_t{task}`, feature-major);
-median imputation fitted per fold on the training split (0.93% of cells
-missing, 18/157 participants affected; `outputs/baseline/missingness.csv`).
+**Input design**: one sample per participant - the 25 selected features × 11 tasks flattened to **275 features** (`{feature}_t{task}`, feature-major);
 Sample counts per problem: CO vs MCI 141, CO vs AD 116, CO/MCI/AD 157.
 
 
