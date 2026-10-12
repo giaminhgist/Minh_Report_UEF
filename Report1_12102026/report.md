@@ -37,7 +37,7 @@ Notation:
 - `dur` = fixation duration (`GazeEventDuration`, ms);
 - `pup` = binocular mean pupil `(PupilLeft + PupilRight) / 2` (mm);
 - `(cx, cy) = (W/2, H/2)` = media center from `TASK_GEOMETRY` (config.py).
-All stds use `ddof=1` (sample SD). The full 72-feature dictionary: `EDA/features_dictionary.md`.
+All stds use `ddof=1` (sample SD).
 
 | Feature | Meaning | How it is computed | Unit |
 |---|---|---|---|
